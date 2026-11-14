@@ -234,15 +234,23 @@ html,body{height:100%;min-height:0;overflow:hidden}
 @media(min-width:901px) and (max-height:580px){html,body{overflow:auto}.app{min-height:calc(640px / var(--layout-scale,1));overflow:visible}.content{overflow:visible}}
 
 @media(max-width:600px){.header{flex:0 0 auto;min-height:112px;z-index:5}.main-nav{min-height:44px}.hero-grid{grid-template-columns:1fr}.hero h1{font-size:30px}.hero p{font-size:14px}}
+
+.logo-box span{font-size:29px;line-height:1;display:block;transform:rotate(-8deg)}
+.guest-tickets{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f9fbff;border:1px solid #dfeafb;border-radius:22px;text-align:center;padding:30px;box-shadow:var(--shadow)}
+.guest-tickets>svg{width:46px;height:46px;color:#1666f3;stroke-width:1.5}.guest-tickets h2{font-size:24px;margin:18px 0 8px}.guest-tickets p{color:#5c6b88;margin:0 0 24px}.guest-search{background:#1666f3;color:white;border:0;border-radius:12px;padding:14px 25px;font-weight:700;cursor:pointer}
+.field .value{overflow:visible}.field select{font-size:13px;letter-spacing:-.25px}.field .meta{min-width:0;width:100%}
+@media(min-width:901px){.search-card{grid-template-columns:215px 46px 255px 185px 175px minmax(0,1fr);gap:10px}.field{padding:0 10px;gap:8px}.search-card .field:nth-of-type(2) select{font-size:13px}.filters{align-self:stretch}.info-box .big{color:#7585a0}.side-menu{margin-top:18px}.guest-tickets{min-height:0}}
+@media(max-width:900px){.search-card{grid-template-columns:1fr 42px 1fr}.search-card .field{min-width:0}.search-card .field:nth-of-type(2){grid-column:3}.search-card .field:nth-of-type(3){grid-column:1/3}.search-card .search-btn{grid-column:1/-1}}
+@media(max-width:600px){.search-card{grid-template-columns:1fr 42px}.search-card .field:first-child{grid-column:1}.search-card .swap{grid-column:2;grid-row:1}.search-card .field:nth-of-type(2){grid-column:1/-1}.search-card .field:nth-of-type(3){grid-column:1/-1}.search-card .field:nth-of-type(4){grid-column:1/-1}.field select{font-size:14px}.ticket-list{min-height:300px}.guest-tickets h2{font-size:20px}}
+
+@media(max-width:900px){.search-hero{flex:0 0 auto;height:auto;overflow:visible}.search-hero .hero-grid{height:auto;min-height:145px;padding-bottom:24px}.search-card{position:relative;height:auto;bottom:auto;left:auto;right:auto}.search-card .field{height:58px}}
 </style>
 </head>
 <body>
 <div class="app">
   <header class="header">
     <div class="brand">
-      <div class="logo-box">
-        <svg viewBox="0 0 24 24"><path d="M2 15l8.5-1.7 8-8A1.6 1.6 0 0 1 21 7.5l-5 6.5 4.5 2.3c.7.4.7 1.4-.1 1.7l-2 .8a2 2 0 0 1-1.5 0L13 17l-2.3 3c-.5.6-1.4.3-1.5-.5L8.6 16 4 17.5z"/></svg>
-      </div>
+      <div class="logo-box"><span aria-hidden="true">✈️</span></div>
       <div>Авиабилеты</div>
     </div>
     <nav class="main-nav">
@@ -309,18 +317,13 @@ html,body{height:100%;min-height:0;overflow:hidden}
             <label class="check"><input type="checkbox">Победа</label>
             <label class="check"><input type="checkbox">Уральские авиалинии</label>
           </div>
-          <div class="filter-block">
-            <h4>Время вылета</h4>
-            <label class="check"><input type="checkbox">Утро (06:00 – 12:00)</label>
-            <label class="check"><input type="checkbox">День (12:00 – 18:00)</label>
-            <label class="check"><input type="checkbox">Вечер (18:00 – 24:00)</label>
-          </div>
+          
         </aside>
 
         <section class="panel results">
           <div class="results-head">
             <h3>Найдено рейсов: 12</h3>
-            <button class="sort-chip">⇵ Сначала дешёвые <span style="font-size:14px;opacity:.7">▼</span></button>
+            
           </div>
 
           <div class="result-row">
@@ -393,7 +396,7 @@ html,body{height:100%;min-height:0;overflow:hidden}
       <div class="profile-layout">
         <aside class="side-card">
           <div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 20a8 8 0 0 1 16 0"></path></svg></div>
-          <div class="user-name">Исомов Юсуф</div>
+          <div class="user-name">Гость</div>
           <div class="side-menu">
             <button class="active"><svg viewBox="0 0 24 24"><circle class="icon-stroke" cx="12" cy="8" r="4"></circle><path class="icon-stroke" d="M4 20a8 8 0 0 1 16 0"></path></svg>Личные данные</button>
             <button><svg viewBox="0 0 24 24"><path class="icon-stroke" d="M4 7h14a2 2 0 0 1 2 2v1a2 2 0 0 0-2 2 2 2 0 0 0 2 2v1a2 2 0 0 1-2 2H4v-3a2 2 0 0 0 0-4z"></path><path class="icon-stroke" d="M9 7v10"></path></svg>Мои билеты</button>
@@ -407,17 +410,17 @@ html,body{height:100%;min-height:0;overflow:hidden}
           <div class="details-head">
             <div>
               <h2>Личные данные</h2>
-              <p>Ваши контактные данные для бронирования билетов</p>
+              <p>Вы пока не вошли в аккаунт</p>
             </div>
             <button class="edit-btn"><svg viewBox="0 0 24 24" style="width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg>Редактировать</button>
           </div>
           <div class="info-grid">
-            <div class="info-box"><svg viewBox="0 0 24 24"><circle class="icon-stroke" cx="12" cy="8" r="4"></circle><path class="icon-stroke" d="M4 20a8 8 0 0 1 16 0"></path></svg><div><div class="small">ФИО</div><div class="big">Исомов Юсуф Абдуллоевич</div></div></div>
-            <div class="info-box"><svg viewBox="0 0 24 24"><rect class="icon-stroke" x="3" y="5" width="18" height="16" rx="2"></rect><path class="icon-stroke" d="M8 3v4M16 3v4M3 10h18"></path></svg><div><div class="small">Дата рождения</div><div class="big">15.03.2005</div></div></div>
-            <div class="info-box"><svg viewBox="0 0 24 24"><path class="icon-stroke" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.4 19.4 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.8L7.1 10a16 16 0 0 0 6.9 6.9l1.5-1.9a2 2 0 0 1 1.8-.6l3 .5a2 2 0 0 1 1.7 2z"></path></svg><div><div class="small">Номер телефона</div><div class="big">+7 999 123-45-67</div></div></div>
-            <div class="info-box"><svg viewBox="0 0 24 24"><rect class="icon-stroke" x="3" y="5" width="18" height="14" rx="2"></rect><path class="icon-stroke" d="M3 7l9 6 9-6"></path></svg><div><div class="small">Электронная почта</div><div class="big">yusuf@mail.ru</div></div></div>
+            <div class="info-box"><svg viewBox="0 0 24 24"><circle class="icon-stroke" cx="12" cy="8" r="4"></circle><path class="icon-stroke" d="M4 20a8 8 0 0 1 16 0"></path></svg><div><div class="small">ФИО</div><div class="big">—</div></div></div>
+            <div class="info-box"><svg viewBox="0 0 24 24"><rect class="icon-stroke" x="3" y="5" width="18" height="16" rx="2"></rect><path class="icon-stroke" d="M8 3v4M16 3v4M3 10h18"></path></svg><div><div class="small">Дата рождения</div><div class="big">—</div></div></div>
+            <div class="info-box"><svg viewBox="0 0 24 24"><path class="icon-stroke" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.4 19.4 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.8L7.1 10a16 16 0 0 0 6.9 6.9l1.5-1.9a2 2 0 0 1 1.8-.6l3 .5a2 2 0 0 1 1.7 2z"></path></svg><div><div class="small">Номер телефона</div><div class="big">—</div></div></div>
+            <div class="info-box"><svg viewBox="0 0 24 24"><rect class="icon-stroke" x="3" y="5" width="18" height="14" rx="2"></rect><path class="icon-stroke" d="M3 7l9 6 9-6"></path></svg><div><div class="small">Электронная почта</div><div class="big">—</div></div></div>
           </div>
-          <div class="info-note"><svg viewBox="0 0 24 24"><circle class="icon-stroke" cx="12" cy="12" r="10"></circle><path class="icon-stroke" d="M12 8h.01"></path><path class="icon-stroke" d="M11 12h1v4h1"></path></svg>Эти данные будут автоматически подставляться при оформлении билетов.</div>
+          <div class="info-note"><svg viewBox="0 0 24 24"><circle class="icon-stroke" cx="12" cy="12" r="10"></circle><path class="icon-stroke" d="M12 8h.01"></path><path class="icon-stroke" d="M11 12h1v4h1"></path></svg>Личные данные появятся после входа в аккаунт.</div>
         </section>
       </div>
     </section>
@@ -434,68 +437,15 @@ html,body{height:100%;min-height:0;overflow:hidden}
       </div>
       <div class="ticket-layout">
         <div class="ticket-tabs">
-          <button class="ticket-tab active"><svg viewBox="0 0 24 24"><path class="icon-stroke" d="M4 7h14a2 2 0 0 1 2 2v1a2 2 0 0 0-2 2 2 2 0 0 0 2 2v1a2 2 0 0 1-2 2H4v-3a2 2 0 0 0 0-4z"></path><path class="icon-stroke" d="M9 7v10"></path></svg>Все билеты (2)</button>
-          <button class="ticket-tab"><svg viewBox="0 0 24 24"><path class="icon-stroke" d="M2 16l20-8-8 20-3-9z"></path></svg>Предстоящие (1)</button>
-          <button class="ticket-tab"><svg viewBox="0 0 24 24"><circle class="icon-stroke" cx="12" cy="12" r="9"></circle><path class="icon-stroke" d="M8 12l2.5 2.5L16 9"></path></svg>Завершённые (1)</button>
+          <button class="ticket-tab active"><svg viewBox="0 0 24 24"><path class="icon-stroke" d="M4 7h14a2 2 0 0 1 2 2v1a2 2 0 0 0-2 2 2 2 0 0 0 2 2v1a2 2 0 0 1-2 2H4v-3a2 2 0 0 0 0-4z"></path><path class="icon-stroke" d="M9 7v10"></path></svg>Все билеты (0)</button>
+          <button class="ticket-tab"><svg viewBox="0 0 24 24"><path class="icon-stroke" d="M2 16l20-8-8 20-3-9z"></path></svg>Предстоящие (0)</button>
+          <button class="ticket-tab"><svg viewBox="0 0 24 24"><circle class="icon-stroke" cx="12" cy="12" r="9"></circle><path class="icon-stroke" d="M8 12l2.5 2.5L16 9"></path></svg>Завершённые (0)</button>
         </div>
 
-        <div class="ticket-list">
-          <article class="ticket-card">
-            <div class="ticket-img"></div>
-            <div class="ticket-main">
-              <div class="ticket-head">
-                <div class="ticket-air">
-                  <div class="mark ae"><svg viewBox="0 0 48 48"><path d="M7 32l29-11 5-7-9 3-8-9-4 1 5 10-17 7z" fill="#e32626"/><path d="M9 34l26-7 7-5-23 4z" fill="#e32626"/></svg></div>
-                  <div><strong>Аэрофлот</strong><span>Рейс SU1248</span></div>
-                </div>
-                <div class="badge"><svg viewBox="0 0 24 24"><rect class="icon-stroke" x="3" y="5" width="18" height="16" rx="2"></rect><path class="icon-stroke" d="M8 3v4M16 3v4M3 10h18"></path></svg>Предстоящий рейс</div>
-              </div>
-              <div class="ticket-route">
-                <div class="ticket-time"><b>08:20</b>Москва (SVO)</div>
-                <div class="middle"><span>✈</span><div class="line"></div><span>1 ч 30 мин</span><div class="line"></div><span>✈</span></div>
-                <div class="ticket-time" style="text-align:right"><b>09:50</b>Санкт-Петербург (LED)</div>
-              </div>
-              <div class="ticket-foot">
-                <span><svg viewBox="0 0 24 24"><rect class="icon-stroke" x="3" y="5" width="18" height="16" rx="2"></rect><path class="icon-stroke" d="M8 3v4M16 3v4M3 10h18"></path></svg>15 ноя 2026</span>
-                <span><svg viewBox="0 0 24 24"><path class="icon-stroke" d="M4 12h16"></path><path class="icon-stroke" d="M7 12V7a2 2 0 1 1 4 0v5"></path><path class="icon-stroke" d="M14 12V9a2 2 0 1 1 4 0v3"></path><path class="icon-stroke" d="M6 20h12"></path></svg>Место: 12A</span>
-                <span><svg viewBox="0 0 24 24"><circle class="icon-stroke" cx="12" cy="8" r="4"></circle><path class="icon-stroke" d="M4 20a8 8 0 0 1 16 0"></path></svg>Пассажир: Исомов И.И.</span>
-              </div>
-            </div>
-            <div class="ticket-side">
-              <div class="cost-title">Стоимость</div>
-              <div class="cost">5 490 ₽</div>
-              <button class="primary">Показать билет</button>
-              
-            </div>
-          </article>
+        <div class="ticket-list"><div class="guest-tickets"><i data-lucide="ticket"></i><h2>У вас пока нет билетов</h2><p>Здесь появятся ваши оформленные билеты.</p><button class="guest-search">Найти рейсы</button></div>
+          
 
-          <article class="ticket-card">
-            <div class="ticket-img" style="background:linear-gradient(180deg,#95c7ff,#f0e0ff)"></div>
-            <div class="ticket-main">
-              <div class="ticket-head">
-                <div class="ticket-air">
-                  <div class="mark" style="background:#84cd1b">S7</div>
-                  <div><strong>S7 Airlines</strong><span>Рейс S71152</span></div>
-                </div>
-                <div class="badge done"><svg viewBox="0 0 24 24"><circle class="icon-stroke" cx="12" cy="12" r="9"></circle><path class="icon-stroke" d="M8 12l2.5 2.5L16 9"></path></svg>Завершённый рейс</div>
-              </div>
-              <div class="ticket-route">
-                <div class="ticket-time"><b>10:40</b>Москва (SVO)</div>
-                <div class="middle"><span>✈</span><div class="line"></div><span>1 ч 35 мин</span><div class="line"></div><span>✈</span></div>
-                <div class="ticket-time" style="text-align:right"><b>12:15</b>Санкт-Петербург (LED)</div>
-              </div>
-              <div class="ticket-foot">
-                <span><svg viewBox="0 0 24 24"><rect class="icon-stroke" x="3" y="5" width="18" height="16" rx="2"></rect><path class="icon-stroke" d="M8 3v4M16 3v4M3 10h18"></path></svg>20 окт 2026</span>
-                <span><svg viewBox="0 0 24 24"><path class="icon-stroke" d="M4 12h16"></path><path class="icon-stroke" d="M7 12V7a2 2 0 1 1 4 0v5"></path><path class="icon-stroke" d="M14 12V9a2 2 0 1 1 4 0v3"></path><path class="icon-stroke" d="M6 20h12"></path></svg>Место: 14B</span>
-                <span><svg viewBox="0 0 24 24"><circle class="icon-stroke" cx="12" cy="8" r="4"></circle><path class="icon-stroke" d="M4 20a8 8 0 0 1 16 0"></path></svg>Пассажир: Исомов И.И.</span>
-              </div>
-            </div>
-            <div class="ticket-side">
-              <div class="cost-title">Стоимость</div>
-              <div class="cost">5 990 ₽</div>
-              <button class="secondary">Просмотреть</button>
-            </div>
-          </article>
+          
         </div>
       </div>
     </section>
@@ -521,19 +471,22 @@ html,body{height:100%;min-height:0;overflow:hidden}
   const from=$('select',fields[0]), to=$('select',fields[1]), date=$('input',fields[2]);
   $('.swap').setAttribute('aria-label','Поменять города местами'); $('.swap').onclick=()=>{[from.value,to.value]=[to.value,from.value]};
   const rows=$$('.result-row'), checks=$$('.check input'), heading=$('.results-head h3');
-  const sort=document.createElement('select'); sort.className='sort-chip'; sort.setAttribute('aria-label','Сортировка'); sort.innerHTML='<option value="price">⇵ Сначала дешёвые</option><option value="time">Сначала ранние</option>'; $('.sort-chip').replaceWith(sort);
   const empty=document.createElement('p'); empty.className='empty'; empty.textContent='По выбранным условиям рейсов не найдено. Попробуйте изменить фильтры.'; empty.hidden=true; $('.results').append(empty);
   function filter(){const airlines=checks.slice(3,4).concat(checks.slice(4,7)).filter(c=>c.checked).map(c=>c.parentElement.textContent.trim()); const times=checks.slice(7).map(c=>c.checked); let count=0; rows.forEach(row=>{const name=$('.airline-name',row).textContent; const hour=Number($('.time',row).textContent.slice(0,2)); const timeOk=!times.some(Boolean)||(times[0]&&hour<12)||(times[1]&&hour>=12&&hour<18)||(times[2]&&hour>=18); const ok=(!airlines.length||airlines.includes(name))&&timeOk&&!checks[2].checked; row.hidden=!ok;if(ok) count++}); heading.textContent='Найдено рейсов: '+count;empty.hidden=count>0}
   checks.forEach((c,i)=>c.onchange=()=>{if(i===0&&c.checked){checks[1].checked=false;checks[2].checked=false} if((i===1||i===2)&&c.checked){checks[0].checked=false;if(i===1)checks[2].checked=false;else checks[1].checked=false}filter()});
-  sort.onchange=()=>{rows.sort((a,b)=>sort.value==='price'?parseInt($('.price',a).textContent.replace(/\D/g,''))-parseInt($('.price',b).textContent.replace(/\D/g,'')):$('.time',a).textContent.localeCompare($('.time',b).textContent)).forEach(r=>$('.results').insertBefore(r,empty))};
   $('.search-btn').onclick=()=>{if(from.value===to.value){alert('Выберите разные города вылета и прилёта.');return} rows.forEach(row=>{$$('.time small',row)[0].textContent=from.value;$$('.time small',row)[1].textContent=to.value});filter()};
   const tabs=$$('.ticket-tab'), cards=$$('.ticket-card'); tabs.forEach((b,i)=>b.onclick=()=>{tabs.forEach(x=>x.classList.remove('active'));b.classList.add('active');cards.forEach((c,j)=>c.hidden=i!==0&&j!==i-1)});
   const dialog=$('#dialog'); function show(html){dialog.innerHTML=html; dialog.showModal(); const close=$('[data-close]',dialog);if(close)close.onclick=()=>dialog.close()}
   $$('.pick-btn').forEach(btn=>btn.onclick=()=>{const row=btn.closest('.result-row');show('<h2>Выбранный рейс</h2><p>'+$('.airline-name',row).textContent+' · '+$('.airline-sub',row).textContent+'</p><p>'+from.value+' → '+to.value+'</p><p><strong>'+$('.price',row).textContent+'</strong></p><p>Это демонстрационный рейс. Покупка и оплата пока недоступны.</p><div class="modal-actions"><button class="confirm" data-close>Понятно</button></div>')});
   $$('.ticket-side button').forEach(btn=>btn.onclick=()=>{const card=btn.closest('.ticket-card');show('<h2>Ваш билет</h2><p>'+$('.ticket-air strong',card).textContent+' · '+$('.ticket-air span',card).textContent+'</p><p>'+$$('.ticket-time',card).map(x=>x.textContent.trim()).join(' → ')+'</p><p>'+$('.ticket-foot',card).textContent.trim().replace(/\s+/g,' ')+'</p><p>Демонстрационный билет</p><div class="modal-actions"><button data-close>Закрыть</button></div>')});
-  const boxes=$$('.info-box .big'), defaults=boxes.map(x=>x.textContent); let profile;try{profile=JSON.parse(localStorage.getItem('avia-profile'))||defaults}catch(e){profile=defaults} function renderProfile(){boxes.forEach((b,i)=>b.textContent=profile[i]);$('.user-name').textContent=profile[0].split(' ').slice(0,2).join(' ')} renderProfile();
-  $('.edit-btn').onclick=()=>{show('<h2>Личные данные</h2><form id="profile-form">'+['ФИО','Дата рождения','Номер телефона','Электронная почта'].map((x,i)=>'<label>'+x+'<input name="field'+i+'" required></label>').join('')+'<div class="modal-actions"><button type="button" data-close>Отмена</button><button class="confirm" type="submit">Сохранить</button></div></form>');$$('input',dialog).forEach((x,i)=>x.value=profile[i]);$('#profile-form').onsubmit=e=>{e.preventDefault();profile=$$('input',dialog).map(x=>x.value.trim());localStorage.setItem('avia-profile',JSON.stringify(profile));renderProfile();dialog.close()}};
-  const menu=$$('.side-menu button');menu[1].onclick=()=>setView('tickets');menu[0].onclick=()=>setView('profile');menu[2].onclick=()=>show('<h2>Избранные направления</h2><p>Здесь появятся ваши любимые направления.</p><div class="modal-actions"><button class="confirm" data-close>Закрыть</button></div>');menu[3].onclick=()=>show('<h2>Настройки</h2><p>Данные профиля сохраняются в этом браузере.</p><div class="modal-actions"><button class="confirm" data-close>Закрыть</button></div>');$('.exit-btn').onclick=()=>show('<h2>Профиль</h2><p>В демонстрационной версии вход в аккаунт не требуется.</p><div class="modal-actions"><button class="confirm" data-close>Закрыть</button></div>');
+  // A fresh visit is always anonymous; old demo profile data is not loaded.
+  try{localStorage.removeItem('avia-profile')}catch(e){}
+  $('.edit-btn').hidden=true;
+  $('.exit-btn').hidden=true;
+  const menu=$$('.side-menu button');menu[1].onclick=()=>setView('tickets');menu[0].onclick=()=>setView('profile');
+  menu[2].onclick=()=>show('<h2>Избранные направления</h2><p>У вас пока нет избранных направлений.</p><div class="modal-actions"><button data-close>Закрыть</button></div>');
+  menu[3].onclick=()=>show('<h2>Настройки</h2><p>Вы просматриваете сайт как гость.</p><div class="modal-actions"><button data-close>Закрыть</button></div>');
+  $('.guest-search').onclick=()=>setView('search');
   filter();
 
   // Единый набор тонких контурных значков для всех разделов.

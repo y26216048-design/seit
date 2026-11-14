@@ -255,6 +255,11 @@ html,body{height:100%;min-height:0;overflow:hidden}
 @media(min-width:901px){.search-hero .hero-grid{padding-top:25px;padding-left:48px}.search-hero h1{font-size:36px;line-height:1.05;letter-spacing:-.65px;max-width:450px}.search-hero p{font-weight:400;margin-top:10px;font-size:18px}.details-head p{font-size:16px}.info-grid{margin:0}.edit-btn{font-size:14px;padding:0 16px}.info-note{font-size:15px}.ticket-list .booked-ticket{flex:0 0 auto;min-height:190px}}
 @media(max-width:600px){.search-hero .hero-grid{padding:22px 18px 20px;min-height:140px}.search-hero h1{font-size:28px;line-height:1.1;letter-spacing:-.5px;max-width:270px}.search-hero p{max-width:250px;font-weight:400;font-size:14px;line-height:1.4}.edit-btn{font-size:13px;width:auto;padding:0 12px;max-width:140px}.details-head{gap:10px}.booked-ticket{flex-direction:column;padding:18px}.booked-price{width:auto;border-left:0;border-top:2px dashed #dbe6f5;padding:15px 0 0}.booked-duration{display:none}.booked-head .badge{font-size:11px}.booked-route{gap:10px}.booked-route>div{max-width:48%}.booked-route span{font-size:12px}}
 
+
+.brand{font-size:22px}.profile-chip{font-size:15px}.hero h1{font-size:36px}.search-hero h1{font-size:30px;line-height:1.12}.profile-hero h1{font-size:36px}.details-head h2{font-size:26px}.details-head{flex-basis:90px}.details-card>.edit-btn{margin:24px 0 0 auto;background:#1666f3;border-color:#1666f3;color:#fff;min-height:45px;max-width:none;width:auto;font-size:14px;padding:0 22px}.details-card>.info-note{margin-top:24px}.side-card .user-name{font-size:21px;overflow-wrap:anywhere}.date-display{background:transparent;border:0;padding:0;text-align:left;cursor:pointer;color:#0d1330;width:100%;border-radius:4px}.date-display:focus-visible{outline:2px solid #1666f3;outline-offset:3px}.search-card input[type=date][hidden]{display:none!important}.calendar-head{display:flex;align-items:center;justify-content:space-between;margin:18px 0}.calendar-head strong{text-transform:capitalize}.calendar-head button{border:1px solid #dce6f5;background:#f3f7ff;border-radius:10px;width:40px;height:40px;font-size:26px;cursor:pointer}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.calendar-grid button{aspect-ratio:1;border:0;border-radius:10px;background:#f3f7ff;color:#0d1330;cursor:pointer;font-weight:700}.calendar-grid button:hover{background:#dceaff}.calendar-grid .selected{background:#1666f3;color:white}.weekday{text-align:center;color:#697a96;font-size:13px;padding:6px 0}.logo-box img{mix-blend-mode:multiply;object-fit:contain}
+@media(min-width:901px){.brand{font-size:22px}.profile-chip{font-size:15px}.search-hero h1{font-size:30px;max-width:400px}.search-hero p{font-size:17px}.profile-hero h1{font-size:36px}.profile-hero p{font-size:18px}.details-head{flex-basis:90px}.profile-hero .hero-grid:before{height:62px}.ticket-hero h1{font-size:38px}}
+@media(max-width:600px){.brand{font-size:16px}.profile-chip{font-size:12px}.search-hero h1{font-size:25px}.profile-hero h1{font-size:28px}.details-head h2{font-size:24px}.details-card>.edit-btn{align-self:stretch;margin:20px 0 0;justify-content:center}.logo-box,.logo-box img{width:42px;height:36px}}
+
 </style>
 </head>
 <body>
@@ -449,8 +454,8 @@ html,body{height:100%;min-height:0;overflow:hidden}
       <div class="ticket-layout">
         <div class="ticket-tabs">
           <button class="ticket-tab active"><svg viewBox="0 0 24 24"><path class="icon-stroke" d="M4 7h14a2 2 0 0 1 2 2v1a2 2 0 0 0-2 2 2 2 0 0 0 2 2v1a2 2 0 0 1-2 2H4v-3a2 2 0 0 0 0-4z"></path><path class="icon-stroke" d="M9 7v10"></path></svg>Все билеты (0)</button>
-          <button class="ticket-tab"><svg viewBox="0 0 24 24"><path class="icon-stroke" d="M2 16l20-8-8 20-3-9z"></path></svg>Предстоящие (0)</button>
-          <button class="ticket-tab"><svg viewBox="0 0 24 24"><circle class="icon-stroke" cx="12" cy="12" r="9"></circle><path class="icon-stroke" d="M8 12l2.5 2.5L16 9"></path></svg>Завершённые (0)</button>
+          
+          
         </div>
 
         <div class="ticket-list"><div class="guest-tickets"><i data-lucide="ticket"></i><h2>У вас пока нет билетов</h2><p>Здесь появятся ваши оформленные билеты.</p><button class="guest-search">Найти рейсы</button></div>
@@ -477,10 +482,22 @@ html,body{height:100%;min-height:0;overflow:hidden}
   const fields=$$('.search-card .field');
   fields[0].querySelector('.value').innerHTML='<select aria-label="Откуда">'+cities.map(x=>'<option>'+x+'</option>').join('')+'</select>';
   fields[1].querySelector('.value').innerHTML='<select aria-label="Куда">'+cities.map((x,i)=>'<option '+(i===1?'selected':'')+'>'+x+'</option>').join('')+'</select>';
-  fields[2].querySelector('.value').innerHTML='<span class="date-display" aria-hidden="true">15 ноя 2026</span><input aria-label="Дата вылета" type="date" value="2026-11-15">';
+  fields[2].querySelector('.value').innerHTML='<button class="date-display" type="button" aria-label="Выбрать дату вылета" aria-haspopup="dialog">15 ноя 2026</button><input aria-label="Дата вылета" type="date" value="2026-11-15" hidden>';
   fields[3].querySelector('.value').innerHTML='<select aria-label="Пассажиры"><option value="1">1 пассажир</option><option value="2">2 пассажира</option><option value="3">3 пассажира</option><option value="4">4 пассажира</option></select>';
   const from=$('select',fields[0]), to=$('select',fields[1]), date=$('input',fields[2]);
   date.onchange=()=>{const d=new Date(date.value+'T12:00:00');$('.date-display').textContent=Number.isNaN(d.getTime())?'Выберите дату':new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'short',year:'numeric'}).format(d).replace(' г.','')};
+  $('.date-display').onclick=()=>{
+    const selected=new Date(date.value+'T12:00:00');let month=new Date(selected.getFullYear(),selected.getMonth(),1);
+    function draw(){
+      const year=month.getFullYear(),index=month.getMonth(),offset=(new Date(year,index,1).getDay()+6)%7,days=new Date(year,index+1,0).getDate();
+      const key=day=>year+'-'+String(index+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');
+      const label=new Intl.DateTimeFormat('ru-RU',{month:'long',year:'numeric'}).format(month);
+      dialog.innerHTML='<h2>Дата вылета</h2><div class="calendar-head"><button type="button" data-prev aria-label="Предыдущий месяц">‹</button><strong>'+label+'</strong><button type="button" data-next aria-label="Следующий месяц">›</button></div><div class="calendar-grid">'+['Пн','Вт','Ср','Чт','Пт','Сб','Вс'].map(d=>'<span class="weekday">'+d+'</span>').join('')+Array(offset).fill('<span></span>').join('')+Array.from({length:days},(_,i)=>'<button type="button" data-date="'+key(i+1)+'" class="'+(key(i+1)===date.value?'selected':'')+'" aria-label="'+key(i+1)+'">'+(i+1)+'</button>').join('')+'</div><div class="modal-actions"><button type="button" data-close>Закрыть</button></div>';
+      $('[data-prev]',dialog).onclick=()=>{month=new Date(year,index-1,1);draw()};$('[data-next]',dialog).onclick=()=>{month=new Date(year,index+1,1);draw()};
+      $$('[data-date]',dialog).forEach(b=>b.onclick=()=>{date.value=b.dataset.date;date.dispatchEvent(new Event('change'));dialog.close()});$('[data-close]',dialog).onclick=()=>dialog.close();
+    }
+    draw();dialog.showModal();
+  };
   $('.swap').setAttribute('aria-label','Поменять города местами'); $('.swap').onclick=()=>{[from.value,to.value]=[to.value,from.value]};
   const rows=$$('.result-row'), checks=$$('.check input'), heading=$('.results-head h3');
   const empty=document.createElement('p'); empty.className='empty'; empty.textContent='По выбранным условиям рейсов не найдено. Попробуйте изменить фильтры.'; empty.hidden=true; $('.results').append(empty);
@@ -498,7 +515,7 @@ html,body{height:100%;min-height:0;overflow:hidden}
   const profileFields=[['name','ФИО','text'],['birthday','Дата рождения','date'],['phone','Номер телефона','tel'],['email','Электронная почта','email']];
   const oldGrid=$('.info-grid');
   $$('.info-box',oldGrid).forEach((box,i)=>{const [key,label,type]=profileFields[i];const input=document.createElement('input');input.type=type;input.name=key;input.required=true;input.value=profile[key]||'';input.placeholder=label;input.setAttribute('aria-label',label);$('.big',box).replaceChildren(input);form.append(box)});oldGrid.replaceWith(form);
-  const submit=$('.edit-btn');submit.hidden=false;submit.textContent='Сохранить данные';submit.type='submit';submit.setAttribute('form','profile-form');
+  const submit=$('.edit-btn');submit.hidden=false;submit.textContent='Сохранить данные';submit.type='submit';submit.setAttribute('form','profile-form');$('.details-card').append(submit);
   $('.details-head p').textContent='Ваши данные для оформления авиабилетов';
   function profileName(){$('.user-name').textContent=profile.name||'Гость'}profileName();
   $('.info-note').textContent=profile.name?'Данные сохранены в этом браузере.':'Заполните данные и сохраните профиль в этом браузере.';
@@ -509,8 +526,8 @@ html,body{height:100%;min-height:0;overflow:hidden}
   function readableDate(value){const d=new Date(value+'T12:00:00');return Number.isNaN(d.getTime())?value:new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'short',year:'numeric'}).format(d).replace(' г.','')}
   function renderTickets(){
     const upcoming=bookings.filter(isUpcoming).length;
-    ['Все билеты ('+bookings.length+')','Предстоящие ('+upcoming+')','Завершённые ('+(bookings.length-upcoming)+')'].forEach((label,i)=>{tabs[i].textContent=label;tabs[i].classList.toggle('active',i===ticketFilter)});
-    const list=$('.ticket-list');const shown=bookings.filter(t=>ticketFilter===0||(ticketFilter===1?isUpcoming(t):!isUpcoming(t)));
+    tabs[0].textContent='Все билеты ('+bookings.length+')';
+    const list=$('.ticket-list');const shown=bookings;
     list.innerHTML=shown.length?shown.map(t=>`<article class="booked-ticket"><div class="booked-main"><div class="booked-head"><strong>${escape(t.airline)}</strong><span class="badge ${isUpcoming(t)?'':'done'}">${isUpcoming(t)?'Предстоящий рейс':'Завершённый рейс'}</span></div><p class="booking-number">${escape(t.flight)} · Заказ ${escape(t.id)}</p><div class="booked-route"><div><b>${escape(t.departure)}</b><span>${escape(t.from)}</span></div><div class="booked-duration">${escape(t.duration)}<div>──────── →</div></div><div><b>${escape(t.arrival)}</b><span>${escape(t.to)}</span></div></div><div class="booked-foot"><span>${escape(readableDate(t.date))}</span><span>Пассажир: ${escape(t.passenger)}</span><span>${escape(t.count)} пасс.</span></div></div><div class="booked-price"><span>Стоимость</span><strong>${new Intl.NumberFormat('ru-RU').format(t.price)} ₽</strong><small>Демонстрационный билет</small></div></article>`).join(''):`<div class="guest-tickets"><h2>${bookings.length?'В этой категории пока нет билетов':'У вас пока нет билетов'}</h2><p>Выберите рейс и нажмите «Купить».</p><button class="guest-search">Найти рейсы</button></div>`;
     const search=$('.guest-search');if(search)search.onclick=()=>setView('search');
   }
@@ -524,11 +541,7 @@ html,body{height:100%;min-height:0;overflow:hidden}
       const next=[ticket,...bookings];if(!save('avia-bookings-v1',next)){let warning=$('.purchase-note',dialog);warning.textContent='Не удалось сохранить билет в браузере. Проверьте настройки хранения.';return}bookings=next;ticketFilter=0;renderTickets();dialog.close();setView('tickets');
     };
   });
-  const menu=$$('.side-menu button');menu[1].innerHTML='<i data-lucide="luggage"></i>Багаж';
-  menu[0].onclick=()=>setView('profile');
-  menu[1].onclick=()=>show('<h2>Багаж</h2><p>Проверьте нормы выбранного тарифа перед поездкой. Размеры и вес ручной клади зависят от авиакомпании.</p><div class="modal-actions"><button data-close>Закрыть</button></div>');
-  menu[2].onclick=()=>{show('<h2>Любимое направление</h2><form id="favorite-form"><label>Направление<select name="city">'+cities.map(c=>'<option '+(c===settings.favorite?'selected':'')+'>'+escape(c)+'</option>').join('')+'</select></label><div class="modal-actions"><button type="button" data-close>Закрыть</button><button class="confirm">Сохранить</button></div></form>');$('#favorite-form').onsubmit=e=>{e.preventDefault();settings.favorite=$('[name=city]',dialog).value;save('avia-settings-v1',settings);to.value=settings.favorite;dialog.close()}};
-  menu[3].onclick=()=>{show('<h2>Настройки поездки</h2><form id="settings-form"><label class="toggle-label"><input type="checkbox" name="baggage" '+(settings.baggage?'checked':'')+'> Напоминать о проверке багажа</label><p>Настройки сохраняются в этом браузере.</p><div class="modal-actions"><button type="button" data-close>Закрыть</button><button class="confirm">Сохранить</button></div></form>');$('#settings-form').onsubmit=e=>{e.preventDefault();settings.baggage=$('[name=baggage]',dialog).checked;save('avia-settings-v1',settings);dialog.close()}};
+  const menu=$$('.side-menu button');menu.slice(1).forEach(b=>b.remove());menu[0].onclick=()=>setView('profile');
   filter();
 
   // Единый набор тонких контурных значков для всех разделов.

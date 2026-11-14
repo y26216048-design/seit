@@ -187,6 +187,52 @@ body{background:#eaf3ff;font-family:Arial,sans-serif}.app{background:linear-grad
 [hidden]{display:none!important}.route-line svg,.ticket-route .middle svg{width:17px;height:17px;stroke:#36537a;fill:none;stroke-width:2}.route-line .line:after,.ticket-route .middle .line:after{display:none}.swap svg{width:24px;height:24px;vertical-align:middle}.search-btn svg,.pick-btn svg{flex:none}.avatar svg{stroke:#1263ed;fill:#1263ed}.ticket-side .primary:before{content:'▦';font-size:20px;margin-right:10px;vertical-align:middle}.ticket-side .secondary:before{content:'◉';font-size:17px;margin-right:10px}.result-row .route-line,.ticket-route .middle{color:#304967}.content{padding-bottom:0}
 @media(min-width:901px){.content{min-height:calc(100vh - 64px)}.search-layout{padding-bottom:15px}.results{gap:8px}.result-row{min-height:66px}.filter-block h4{margin-bottom:7px}.filter-block{padding-top:10px}.check{margin:4px 0}.logo-circle.s7{border-radius:50%}.ticket-side{justify-content:center}.ticket-card .ticket-side .primary:only-of-type{margin-top:2px}}
 
+
+/* A single viewport layout: the last card defines the bottom edge. */
+@media(min-width:901px){
+html,body{height:100%;min-height:0;overflow:hidden}
+.app{width:1280px;height:calc(100dvh / var(--layout-scale,1));min-height:0;zoom:var(--layout-scale,1);overflow:hidden}
+.header{flex:0 0 64px;height:64px;padding:0 62px}
+.content{flex:1;min-height:0;padding:0 24px 30px;overflow:hidden}
+.view{height:100%;min-height:0;gap:0}
+.hero{flex:0 0 174px;min-height:0}
+.search-hero{flex-basis:276px}
+.search-layout{flex:1;min-height:0;grid-template-columns:238px minmax(0,1fr);gap:10px;padding:0 10px}
+.filters{min-height:0;padding:16px 24px;gap:9px}
+.results{min-height:0;margin-bottom:12px;padding:10px 12px;gap:8px}
+.results-head{flex:0 0 36px}
+.result-row{flex:1;min-height:0;grid-template-columns:200px 105px 166px 195px 95px 106px;grid-template-columns:minmax(154px,1.25fr) 105px minmax(100px,1fr) minmax(135px,1.2fr) 95px 106px}
+#view-search{margin-bottom:-16px;height:calc(100% + 16px)}
+.search-card{left:28px;right:28px;bottom:28px}
+.hero-grid{padding-left:48px}
+.search-hero .hero-grid{padding-left:48px}
+.profile-layout{flex:1;min-height:0;grid-template-columns:286px minmax(0,1fr);gap:12px}
+.side-card{min-height:0;padding:18px 12px;gap:10px}
+.side-menu button{font-weight:400;padding:0 12px;gap:14px;white-space:nowrap}
+.details-card{min-height:0;padding:28px 32px;gap:0}
+.details-head{flex:0 0 102px;align-items:flex-start}
+.edit-btn{margin-top:10px}
+.info-grid{gap:24px 18px}
+.info-note{margin-top:34px;min-height:53px}
+.profile-hero .hero-grid{padding-left:46px;padding-top:38px}
+.profile-hero .hero-grid:before{margin-right:26px}
+.ticket-hero{flex-basis:154px}
+.ticket-layout{flex:1;min-height:0;padding:0 32px;gap:20px}
+.ticket-tabs{flex:0 0 44px;gap:12px;padding:0 16px}
+.ticket-list{flex:1;min-height:0;gap:20px}
+.ticket-card{flex:1;min-height:0;grid-template-columns:174px minmax(0,1fr) 252px;padding:12px;gap:38px}
+.ticket-route{grid-template-columns:160px minmax(0,1fr) 200px}
+.ticket-side{position:relative}
+.ticket-side:before,.ticket-side:after{content:"";position:absolute;left:-14px;width:26px;height:26px;border-radius:50%;background:#e9f3ff}
+.ticket-side:before{top:-25px}.ticket-side:after{bottom:-25px}
+.route-line,.ticket-route .middle{position:relative;height:32px;gap:4px}
+.route-line span:nth-of-type(2),.ticket-route .middle span:nth-of-type(2){position:absolute;left:50%;top:-5px;transform:translateX(-50%);white-space:nowrap;font-size:11px;background:#f9fbff;padding:0 6px}
+.route-line .line,.ticket-route .middle .line{height:2px;background:#b6c7df}
+.route-line svg,.ticket-route .middle svg{transform:rotate(45deg);fill:#36537a;stroke-width:1}
+.content:before{height:290px;background-size:auto,100% 100%}
+}
+@media(min-width:901px) and (max-height:580px){html,body{overflow:auto}.app{min-height:calc(640px / var(--layout-scale,1));overflow:visible}.content{overflow:visible}}
+
 </style>
 </head>
 <body>
@@ -460,6 +506,8 @@ body{background:#eaf3ff;font-family:Arial,sans-serif}.app{background:linear-grad
 <script>
 (() => {
   const $ = (s, root=document) => root.querySelector(s), $$ = (s, root=document) => [...root.querySelectorAll(s)];
+  function fitLayout(){document.documentElement.style.setProperty('--layout-scale',window.innerWidth>900?window.innerWidth/1280:1)}
+  fitLayout(); window.addEventListener('resize',fitLayout);
   const views = ['search','tickets','profile'];
   function setView(name){views.forEach(v=>{$('#view-'+v).classList.toggle('active',v===name); $$('[data-view="'+v+'"]').forEach(b=>b.classList.toggle('active',v===name));}); window.scrollTo(0,0)}
   $$('[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));

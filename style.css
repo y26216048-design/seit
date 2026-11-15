@@ -208,12 +208,6 @@ body {
   align-items: center;
   padding: 26px 34px 90px 42px;
 }
-.hero h1 {
-  margin: 0;
-  font-size: 66px;
-  line-height: 0.95;
-  letter-spacing: -1.8px;
-}
 .hero p {
   margin: 16px 0 0;
   color: #52688f;
@@ -719,9 +713,6 @@ body {
     font-size: 16px;
     height: 44px;
   }
-  .hero h1 {
-    font-size: 46px;
-  }
   .hero p {
     font-size: 20px;
   }
@@ -876,9 +867,6 @@ body {
   .hero {
     border-radius: 20px;
     flex-basis: 170px;
-  }
-  .hero h1 {
-    font-size: 34px;
   }
   .hero p {
     font-size: 16px;
@@ -1039,11 +1027,6 @@ body {
     align-items: flex-start;
     padding: 30px 4% 0;
   }
-  .hero h1 {
-    font-size: 48px;
-    line-height: 1.03;
-    letter-spacing: -1px;
-  }
   .hero p {
     font-size: 20px;
     margin: 7px 0 0;
@@ -1054,9 +1037,6 @@ body {
   }
   .search-hero .hero-grid {
     padding-top: 25px;
-  }
-  .search-hero h1 {
-    font-size: 36px;
   }
   .search-hero p {
     font-size: 18px;
@@ -1491,9 +1471,6 @@ body {
   .hero-grid {
     grid-template-columns: 1fr;
   }
-  .hero h1 {
-    font-size: 30px;
-  }
   .hero p {
     font-size: 14px;
   }
@@ -1815,12 +1792,6 @@ body {
     padding-top: 25px;
     padding-left: 48px;
   }
-  .search-hero h1 {
-    font-size: 36px;
-    line-height: 1.05;
-    letter-spacing: -0.65px;
-    max-width: 450px;
-  }
   .search-hero p {
     font-weight: 400;
     margin-top: 10px;
@@ -1848,12 +1819,6 @@ body {
   .search-hero .hero-grid {
     padding: 22px 18px 20px;
     min-height: 140px;
-  }
-  .search-hero h1 {
-    font-size: 28px;
-    line-height: 1.1;
-    letter-spacing: -0.5px;
-    max-width: 270px;
   }
   .search-hero p {
     max-width: 250px;
@@ -1899,16 +1864,6 @@ body {
 }
 .profile-chip {
   font-size: 15px;
-}
-.hero h1 {
-  font-size: 36px;
-}
-.search-hero h1 {
-  font-size: 30px;
-  line-height: 1.12;
-}
-.profile-hero h1 {
-  font-size: 36px;
 }
 .details-head h2 {
   font-size: 26px;
@@ -1999,15 +1954,8 @@ body {
   .profile-chip {
     font-size: 15px;
   }
-  .search-hero h1 {
-    font-size: 30px;
-    max-width: 400px;
-  }
   .search-hero p {
     font-size: 17px;
-  }
-  .profile-hero h1 {
-    font-size: 36px;
   }
   .profile-hero p {
     font-size: 18px;
@@ -2018,9 +1966,6 @@ body {
   .profile-hero .hero-grid:before {
     height: 62px;
   }
-  .ticket-hero h1 {
-    font-size: 38px;
-  }
 }
 @media (max-width: 600px) {
   .brand {
@@ -2028,12 +1973,6 @@ body {
   }
   .profile-chip {
     font-size: 12px;
-  }
-  .search-hero h1 {
-    font-size: 25px;
-  }
-  .profile-hero h1 {
-    font-size: 28px;
   }
   .details-head h2 {
     font-size: 24px;
@@ -2407,10 +2346,6 @@ body {
 .field .meta {
   padding-right: 15px;
 }
-.search-hero h1 {
-  font-weight: 900;
-  letter-spacing: -0.6px;
-}
 .brand {
   font-weight: 800;
   letter-spacing: -0.4px;
@@ -2437,9 +2372,6 @@ body {
 }
 .results {
   overflow: auto;
-}
-.profile-hero h1 {
-  font-size: 29px;
 }
 .profile-hero p {
   font-size: 16px;
@@ -2483,12 +2415,6 @@ body {
   .result-row .time {
     font-size: 20px;
   }
-  .search-hero h1 {
-    font-weight: 900;
-  }
-  .profile-hero h1 {
-    font-size: 29px;
-  }
   .profile-hero p {
     font-size: 16px;
   }
@@ -2528,9 +2454,6 @@ body {
   .brand {
     font-size: 17px;
   }
-  .profile-hero h1 {
-    font-size: 25px;
-  }
   .profile-hero p {
     font-size: 14px;
   }
@@ -2544,9 +2467,6 @@ body {
   }
   .result-row .airline-name {
     font-size: 15px;
-  }
-  .search-hero h1 {
-    font-weight: 900;
   }
   .ticket-layout {
     gap: 0;
@@ -2686,24 +2606,25 @@ body {
     min-height: 52px;
   }
 }
-
-/* Shared page headings and navigation styling. */
-.search-hero h1,
-.ticket-hero h1,
-.profile-hero h1 {
-  font-size: 30px;
-  font-weight: 900;
-  line-height: 1.12;
-  letter-spacing: -0.6px;
-}
 .nav-profile { margin-left: auto; }
 @media (max-width: 600px) {
-  .search-hero h1,
-  .ticket-hero h1,
-  .profile-hero h1 { font-size: 25px; }
   .nav-profile { flex: 0 0 auto; padding: 0 12px; }
 }
 
 .search-card .field:last-of-type .field-chevron {
   top: calc(50% + 8px);
+}
+
+/* All three section titles use exactly the same typography. */
+.page-title {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  font-style: normal;
+  line-height: 1.12;
+  letter-spacing: -0.6px;
+}
+@media (max-width: 600px) {
+  .page-title { font-size: 25px; }
 }

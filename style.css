@@ -2703,3 +2703,7 @@ body {
   .profile-hero h1 { font-size: 25px; }
   .nav-profile { flex: 0 0 auto; padding: 0 12px; }
 }
+
+.search-card .field:last-of-type .field-chevron {
+  top: calc(50% + 8px);
+}

@@ -489,7 +489,7 @@
   }
   icon('.nav-btn[data-view="search"]', "search");
   icon('.nav-btn[data-view="tickets"]', "ticket");
-  icon(".profile-chip", "user-round");
+  icon(".nav-profile", "user-round");
   ["plane-takeoff", "plane-landing", "calendar-days", "user-round"].forEach(
     (name, i) => icon(".search-card .field:nth-of-type(" + (i + 1) + ")", name),
   );

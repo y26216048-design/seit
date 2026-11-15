@@ -2628,3 +2628,15 @@ body {
 @media (max-width: 600px) {
   .page-title { font-size: 25px; }
 }
+
+/* Center the short titles within their banner. */
+.ticket-hero .hero-grid,
+.profile-hero .hero-grid {
+  padding-top: 46px;
+}
+@media (max-width: 600px) {
+  .ticket-hero .hero-grid,
+  .profile-hero .hero-grid {
+    padding-top: 40px;
+  }
+}

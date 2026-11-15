@@ -327,7 +327,6 @@
   erase.className = "delete-profile";
   erase.textContent = "Удалить данные";
   actions.append(erase);
-  $(".details-head p").textContent = "Ваши данные для оформления авиабилетов";
   function registered() {
     return ["name", "birthday", "phone", "email"].every(
       (key) => typeof profile[key] === "string" && profile[key].trim(),
@@ -338,9 +337,6 @@
     submit.textContent = registered()
       ? "Сохранить данные"
       : "Зарегистрироваться";
-    $(".details-head p").textContent = profile.name
-      ? "Данные пассажира: " + profile.name
-      : "Заполните данные пассажира для оформления билетов";
   }
   profileName();
   $(".info-note").hidden = true;

@@ -260,6 +260,14 @@ html,body{height:100%;min-height:0;overflow:hidden}
 @media(min-width:901px){.brand{font-size:22px}.profile-chip{font-size:15px}.search-hero h1{font-size:30px;max-width:400px}.search-hero p{font-size:17px}.profile-hero h1{font-size:36px}.profile-hero p{font-size:18px}.details-head{flex-basis:90px}.profile-hero .hero-grid:before{height:62px}.ticket-hero h1{font-size:38px}}
 @media(max-width:600px){.brand{font-size:16px}.profile-chip{font-size:12px}.search-hero h1{font-size:25px}.profile-hero h1{font-size:28px}.details-head h2{font-size:24px}.details-card>.edit-btn{align-self:stretch;margin:20px 0 0;justify-content:center}.logo-box,.logo-box img{width:42px;height:36px}}
 
+
+.field{position:relative;cursor:pointer}.field-trigger{position:absolute;inset:0;width:100%;height:100%;border:0;background:transparent;border-radius:15px;cursor:pointer;z-index:2}.field-trigger:focus-visible{outline:2px solid #1666f3;outline-offset:2px}.field-choice-label{display:block;font-size:13px;line-height:22px;white-space:nowrap;letter-spacing:-.2px;padding-right:13px}.field .value:has(.field-choice-label):after{content:"⌄";position:absolute;right:10px;top:50%;font-size:17px;transform:translateY(-50%);color:#385070}.field-options{display:grid;gap:9px;margin-top:18px}.field-options button{padding:15px;text-align:left;border:1px solid #e0e8f6;background:#f7faff;color:#18243e;border-radius:12px;font:inherit;cursor:pointer}.field-options button:hover,.field-options .selected{border-color:#1666f3;background:#eaf2ff;color:#1666f3}.swap{transition:background .15s,transform .15s}.swap:hover{background:#e7f0ff}.swap:active{transform:rotate(180deg)}
+.profile-layout{display:block}.details-card{width:100%;max-width:1100px;margin:0 auto;box-sizing:border-box}.details-head{flex:0 0 auto;margin-bottom:25px}.details-head h2{font-size:26px}.details-head p{font-size:15px;line-height:1.5}.details-card>.edit-btn{margin:22px 0 0 auto;align-self:flex-end}.details-card>.info-note{margin:16px 0 0;padding:0;background:transparent;min-height:0;order:5;font-size:14px;color:#256c3a}.info-box{background:#fff;border:1px solid #e0e8f4}.info-box .big input{min-height:30px}.ticket-flight-path{display:flex;align-items:center;gap:8px;margin-top:8px}.ticket-flight-path>span{width:45px;height:1px;background:#bdcde3}.ticket-flight-path svg{width:20px;height:20px;transform:rotate(45deg);color:#36537a}.booked-route{gap:24px}
+@media(min-width:901px){.profile-hero{flex-basis:150px}.profile-hero .hero-grid{padding-top:28px}.profile-layout{flex:1;min-height:0}.details-card{height:auto;min-height:0;padding:30px 34px;display:flex;gap:0}.details-head{flex:0 0 auto;margin-bottom:28px}.info-grid{gap:18px}.info-box{height:80px}.search-card{gap:8px;padding:12px;grid-template-columns:212px 44px 255px 195px 172px minmax(0,1fr)}.field{padding:0 12px}.search-btn{gap:7px}.result-row{grid-template-columns:200px 105px minmax(100px,1fr) 190px 105px 106px}.results{gap:8px}}
+@media(max-width:900px){.details-card{margin:0}.profile-layout{display:block}.details-head{margin-bottom:20px}.field-choice-label{font-size:14px}}
+@media(max-width:600px){.details-card{padding:22px 18px}.details-card>.edit-btn{align-self:stretch;margin-top:18px}.info-grid{gap:12px}.info-box{padding:12px 14px}.details-head p{font-size:14px}.booked-duration{display:block;font-size:11px}.ticket-flight-path{gap:3px}.ticket-flight-path>span{width:10px}.booked-route{gap:8px}.booked-route b{font-size:22px}.booked-route>div{min-width:0}.booked-route>div:first-child,.booked-route>div:last-child{flex:1}.profile-hero{flex-basis:140px}}
+
+@media(max-width:600px){.details-card{gap:0}.details-head p{font-weight:400}.details-head{margin-bottom:22px}}
 </style>
 </head>
 <body>
@@ -410,17 +418,7 @@ html,body{height:100%;min-height:0;overflow:hidden}
         </div>
       </div>
       <div class="profile-layout">
-        <aside class="side-card">
-          <div class="avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 20a8 8 0 0 1 16 0"></path></svg></div>
-          <div class="user-name">Гость</div>
-          <div class="side-menu">
-            <button class="active"><svg viewBox="0 0 24 24"><circle class="icon-stroke" cx="12" cy="8" r="4"></circle><path class="icon-stroke" d="M4 20a8 8 0 0 1 16 0"></path></svg>Личные данные</button>
-            <button><svg viewBox="0 0 24 24"><path class="icon-stroke" d="M4 7h14a2 2 0 0 1 2 2v1a2 2 0 0 0-2 2 2 2 0 0 0 2 2v1a2 2 0 0 1-2 2H4v-3a2 2 0 0 0 0-4z"></path><path class="icon-stroke" d="M9 7v10"></path></svg>Мои билеты</button>
-            <button><svg viewBox="0 0 24 24"><path class="icon-stroke" d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>Избранные направления</button>
-            <button><svg viewBox="0 0 24 24"><circle class="icon-stroke" cx="12" cy="12" r="3"></circle><path class="icon-stroke" d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.04 1.54V21a2 2 0 0 1-4 0v-.09a1.7 1.7 0 0 0-1.04-1.54 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.54-1.04H3a2 2 0 0 1 0-4h.09A1.7 1.7 0 0 0 4.63 8.9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1.04-1.54V3a2 2 0 0 1 4 0v.09A1.7 1.7 0 0 0 15 4.63a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9a1.7 1.7 0 0 0 1.54 1.04H21a2 2 0 0 1 0 4h-.09A1.7 1.7 0 0 0 19.37 15z"></path></svg>Настройки</button>
-          </div>
-          <button class="exit-btn"><svg viewBox="0 0 24 24" style="width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:2"><path d="M10 17l5-5-5-5"></path><path d="M15 12H3"></path><path d="M20 20h-7"></path><path d="M20 4h-7"></path><path d="M20 4v16"></path></svg>Выйти</button>
-        </aside>
+        
 
         <section class="details-card">
           <div class="details-head">
@@ -498,16 +496,28 @@ html,body{height:100%;min-height:0;overflow:hidden}
     }
     draw();dialog.showModal();
   };
-  $('.swap').setAttribute('aria-label','Поменять города местами'); $('.swap').onclick=()=>{[from.value,to.value]=[to.value,from.value]};
+  function updateFieldLabels(){
+    [0,1,3].forEach(index=>{const field=fields[index],select=$('select',field);let label=$('.field-choice-label',field);if(!label){label=document.createElement('span');label.className='field-choice-label';$('.value',field).append(label)}label.textContent=select.selectedOptions[0].textContent});
+  }
+  [0,1,3].forEach(index=>{
+    const field=fields[index],select=$('select',field);select.hidden=true;
+    const trigger=document.createElement('button');trigger.type='button';trigger.className='field-trigger';
+    trigger.setAttribute('aria-label',['Выбрать город вылета','Выбрать город прилёта','','Выбрать количество пассажиров'][index]);trigger.setAttribute('aria-haspopup','dialog');field.append(trigger);
+    trigger.onclick=()=>{show('<h2>'+['Откуда','Куда','','Пассажиры'][index]+'</h2><div class="field-options">'+[...select.options].map(o=>'<button type="button" data-value="'+escape(o.value)+'" class="'+(o.selected?'selected':'')+'">'+escape(o.textContent)+'</button>').join('')+'</div><div class="modal-actions"><button type="button" data-close>Закрыть</button></div>');$$('[data-value]',dialog).forEach(button=>button.onclick=()=>{select.value=button.dataset.value;select.dispatchEvent(new Event('change'));updateFieldLabels();dialog.close()})};
+    select.addEventListener('change',updateFieldLabels);
+  });
+  updateFieldLabels();
+  fields[2].onclick=e=>{if(!e.target.closest('.date-display'))$('.date-display').click()};
+  $('.swap').setAttribute('aria-label','Поменять города местами');$('.swap').title='Поменять города местами';$('.swap').onclick=()=>{[from.value,to.value]=[to.value,from.value];updateFieldLabels()};
   const rows=$$('.result-row'), checks=$$('.check input'), heading=$('.results-head h3');
   const empty=document.createElement('p'); empty.className='empty'; empty.textContent='По выбранным условиям рейсов не найдено. Попробуйте изменить фильтры.'; empty.hidden=true; $('.results').append(empty);
-  function filter(){const airlines=checks.slice(3,4).concat(checks.slice(4,7)).filter(c=>c.checked).map(c=>c.parentElement.textContent.trim()); const times=checks.slice(7).map(c=>c.checked); let count=0; rows.forEach(row=>{const name=$('.airline-name',row).textContent; const hour=Number($('.time',row).textContent.slice(0,2)); const timeOk=!times.some(Boolean)||(times[0]&&hour<12)||(times[1]&&hour>=12&&hour<18)||(times[2]&&hour>=18); const ok=(!airlines.length||airlines.includes(name))&&timeOk&&!checks[2].checked; row.hidden=!ok;if(ok) count++}); heading.textContent='Найдено рейсов: '+count;empty.hidden=count>0}
+  function filter(){const airlines=checks.slice(3,4).concat(checks.slice(4,7)).filter(c=>c.checked).map(c=>c.parentElement.textContent.trim()); let count=0; rows.forEach(row=>{const name=$('.airline-name',row).textContent; const ok=(!airlines.length||airlines.includes(name))&&!checks[2].checked; row.hidden=!ok;if(ok) count++}); heading.textContent='Найдено рейсов: '+count;empty.hidden=count>0}
   checks.forEach((c,i)=>c.onchange=()=>{if(i===0&&c.checked){checks[1].checked=false;checks[2].checked=false} if((i===1||i===2)&&c.checked){checks[0].checked=false;if(i===1)checks[2].checked=false;else checks[1].checked=false}filter()});
   $('.search-btn').onclick=()=>{if(from.value===to.value){alert('Выберите разные города вылета и прилёта.');return} rows.forEach(row=>{$$('.time small',row)[0].textContent=from.value;$$('.time small',row)[1].textContent=to.value});filter()};
   const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))||fallback}catch(e){return fallback}}
   function save(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch(e){return false}}
-  let profile=read('avia-profile-v2',{}), bookings=read('avia-bookings-v1',[]), settings=read('avia-settings-v1',{baggage:false});
+  let profile=read('avia-profile-v2',{}), bookings=read('avia-bookings-v1',[]);
   if(!Array.isArray(bookings))bookings=[];
   const dialog=$('#dialog');
   function show(html){dialog.innerHTML=html;dialog.showModal();const close=$('[data-close]',dialog);if(close)close.onclick=()=>dialog.close()}
@@ -517,10 +527,10 @@ html,body{height:100%;min-height:0;overflow:hidden}
   $$('.info-box',oldGrid).forEach((box,i)=>{const [key,label,type]=profileFields[i];const input=document.createElement('input');input.type=type;input.name=key;input.required=true;input.value=profile[key]||'';input.placeholder=label;input.setAttribute('aria-label',label);$('.big',box).replaceChildren(input);form.append(box)});oldGrid.replaceWith(form);
   const submit=$('.edit-btn');submit.hidden=false;submit.textContent='Сохранить данные';submit.type='submit';submit.setAttribute('form','profile-form');$('.details-card').append(submit);
   $('.details-head p').textContent='Ваши данные для оформления авиабилетов';
-  function profileName(){$('.user-name').textContent=profile.name||'Гость'}profileName();
-  $('.info-note').textContent=profile.name?'Данные сохранены в этом браузере.':'Заполните данные и сохраните профиль в этом браузере.';
-  form.onsubmit=e=>{e.preventDefault();const data=Object.fromEntries(new FormData(form));if(!data.name.trim()){form.elements.name.focus();return}profile=data;profileName();$('.info-note').textContent=save('avia-profile-v2',profile)?'Профиль сохранён. Данные будут подставляться при покупке билетов.':'Не удалось сохранить данные в браузере. Проверьте его настройки.'};
-  $('.exit-btn').hidden=true;
+  function profileName(){$('.details-head p').textContent=profile.name?'Данные пассажира: '+profile.name:'Заполните данные пассажира для оформления билетов'}profileName();
+  $('.info-note').hidden=true;$('.info-note').setAttribute('role','status');
+  form.onsubmit=e=>{e.preventDefault();const data=Object.fromEntries(new FormData(form));if(!data.name.trim()){form.elements.name.focus();return}profile=data;profileName();$('.info-note').hidden=false;$('.info-note').textContent=save('avia-profile-v2',profile)?'Данные сохранены.':'Не удалось сохранить данные в браузере. Проверьте его настройки.'};
+
   const tabs=$$('.ticket-tab');let ticketFilter=0;
   function isUpcoming(ticket){const today=new Date();const local=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');return ticket.date>=local}
   function readableDate(value){const d=new Date(value+'T12:00:00');return Number.isNaN(d.getTime())?value:new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'short',year:'numeric'}).format(d).replace(' г.','')}
@@ -528,20 +538,20 @@ html,body{height:100%;min-height:0;overflow:hidden}
     const upcoming=bookings.filter(isUpcoming).length;
     tabs[0].textContent='Все билеты ('+bookings.length+')';
     const list=$('.ticket-list');const shown=bookings;
-    list.innerHTML=shown.length?shown.map(t=>`<article class="booked-ticket"><div class="booked-main"><div class="booked-head"><strong>${escape(t.airline)}</strong><span class="badge ${isUpcoming(t)?'':'done'}">${isUpcoming(t)?'Предстоящий рейс':'Завершённый рейс'}</span></div><p class="booking-number">${escape(t.flight)} · Заказ ${escape(t.id)}</p><div class="booked-route"><div><b>${escape(t.departure)}</b><span>${escape(t.from)}</span></div><div class="booked-duration">${escape(t.duration)}<div>──────── →</div></div><div><b>${escape(t.arrival)}</b><span>${escape(t.to)}</span></div></div><div class="booked-foot"><span>${escape(readableDate(t.date))}</span><span>Пассажир: ${escape(t.passenger)}</span><span>${escape(t.count)} пасс.</span></div></div><div class="booked-price"><span>Стоимость</span><strong>${new Intl.NumberFormat('ru-RU').format(t.price)} ₽</strong><small>Демонстрационный билет</small></div></article>`).join(''):`<div class="guest-tickets"><h2>${bookings.length?'В этой категории пока нет билетов':'У вас пока нет билетов'}</h2><p>Выберите рейс и нажмите «Купить».</p><button class="guest-search">Найти рейсы</button></div>`;
-    const search=$('.guest-search');if(search)search.onclick=()=>setView('search');
+    list.innerHTML=shown.length?shown.map(t=>`<article class="booked-ticket"><div class="booked-main"><div class="booked-head"><strong>${escape(t.airline)}</strong><span class="badge ${isUpcoming(t)?'':'done'}">${isUpcoming(t)?'Предстоящий рейс':'Завершённый рейс'}</span></div><p class="booking-number">${escape(t.flight)} · Заказ ${escape(t.id)}</p><div class="booked-route"><div><b>${escape(t.departure)}</b><span>${escape(t.from)}</span></div><div class="booked-duration">${escape(t.duration)}<div class="ticket-flight-path"><span></span><i data-lucide="plane"></i><span></span></div></div><div><b>${escape(t.arrival)}</b><span>${escape(t.to)}</span></div></div><div class="booked-foot"><span>${escape(readableDate(t.date))}</span><span>Пассажир: ${escape(t.passenger)}</span><span>${escape(t.count)} пасс.</span></div></div><div class="booked-price"><span>Стоимость</span><strong>${new Intl.NumberFormat('ru-RU').format(t.price)} ₽</strong><small>Демонстрационный билет</small></div></article>`).join(''):`<div class="guest-tickets"><h2>${bookings.length?'В этой категории пока нет билетов':'У вас пока нет билетов'}</h2><p>Выберите рейс и нажмите «Купить».</p><button class="guest-search">Найти рейсы</button></div>`;
+    lucide.createIcons();const search=$('.guest-search');if(search)search.onclick=()=>setView('search');
   }
   tabs.forEach((b,i)=>b.onclick=()=>{ticketFilter=i;renderTickets()});renderTickets();
   $$('.pick-btn').forEach(btn=>btn.onclick=()=>{
     if(from.value===to.value||!date.value){show('<h2>Проверьте маршрут</h2><p>Укажите разные города и дату вылета.</p><button data-close>Закрыть</button>');return}
     const row=btn.closest('.result-row'),count=Number($('select',fields[3]).value),price=Number($('.price',row).textContent.replace(/\D/g,''))*count;
-    show(`<h2>Оформление билета</h2><p>${escape($('.airline-name',row).textContent)} · ${escape($('.airline-sub',row).textContent)}</p><p>${escape(from.value)} → ${escape(to.value)}</p><p>${escape($('.date-display').textContent)} · ${count} пасс.</p><form id="purchase-form"><label>ФИО пассажира<input name="passenger" required value="${escape(profile.name||'')}" autocomplete="name"></label><p class="purchase-price">${new Intl.NumberFormat('ru-RU').format(price)} ₽</p><p>${settings.baggage?'Не забудьте проверить норму багажа выбранного рейса.':''}</p><p class="purchase-note">Демонстрационная покупка без оплаты. Билет сохранится в этом браузере.</p><div class="modal-actions"><button type="button" data-close>Отмена</button><button class="confirm" type="submit">Купить</button></div></form>`);
+    show(`<h2>Оформление билета</h2><p>${escape($('.airline-name',row).textContent)} · ${escape($('.airline-sub',row).textContent)}</p><p>${escape(from.value)} → ${escape(to.value)}</p><p>${escape($('.date-display').textContent)} · ${count} пасс.</p><form id="purchase-form"><label>ФИО пассажира<input name="passenger" required value="${escape(profile.name||'')}" autocomplete="name"></label><p class="purchase-price">${new Intl.NumberFormat('ru-RU').format(price)} ₽</p><p class="purchase-note">Демонстрационная покупка без оплаты. Билет сохранится в этом браузере.</p><div class="modal-actions"><button type="button" data-close>Отмена</button><button class="confirm" type="submit">Купить</button></div></form>`);
     $('#purchase-form').onsubmit=e=>{e.preventDefault();const passenger=$('[name=passenger]',dialog).value.trim();if(!passenger)return;
       const ticket={id:Date.now().toString(36).toUpperCase(),airline:$('.airline-name',row).textContent,flight:$('.airline-sub',row).textContent,from:from.value,to:to.value,date:date.value,departure:$('.time',row).childNodes[0].textContent.trim(),arrival:$$('.time',row)[1].childNodes[0].textContent.trim(),duration:$$('span',$('.route-line',row))[1].textContent,passenger,count,price};
       const next=[ticket,...bookings];if(!save('avia-bookings-v1',next)){let warning=$('.purchase-note',dialog);warning.textContent='Не удалось сохранить билет в браузере. Проверьте настройки хранения.';return}bookings=next;ticketFilter=0;renderTickets();dialog.close();setView('tickets');
     };
   });
-  const menu=$$('.side-menu button');menu.slice(1).forEach(b=>b.remove());menu[0].onclick=()=>setView('profile');
+
   filter();
 
   // Единый набор тонких контурных значков для всех разделов.
